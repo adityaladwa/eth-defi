@@ -27,7 +27,7 @@ contract TokenFarm is Ownable {
     }
 
     function issueTokens() public onlyOwner {
-        for(uint256 i = 0; i<= stakers.length; i++){
+        for(uint256 i = 0; i< stakers.length; i++){
             address recipient = stakers[i];
             uint256 userTotalValue = getUserTotalValue(recipient);
             dappToken.transfer(recipient, userTotalValue);
