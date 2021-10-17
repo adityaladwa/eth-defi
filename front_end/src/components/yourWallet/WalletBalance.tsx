@@ -2,10 +2,12 @@ import { useEthers, useTokenBalance } from '@usedapp/core'
 import { Token } from '../Main'
 import { formatUnits } from '@ethersproject/units'
 import { BalanceMessage } from './BalanceMessage'
+import { StakeForm } from './StakeForm'
 
 interface WalletBalanceProps {
   token: Token
 }
+
 export const WalletBalance = ({ token }: WalletBalanceProps) => {
   const { image, address, name } = token
   const { account } = useEthers()
