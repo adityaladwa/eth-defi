@@ -2,6 +2,7 @@ import { Container } from '@material-ui/core'
 import { ChainId, DAppProvider } from '@usedapp/core'
 import React from 'react'
 import { Header } from './components/Header'
+import { Main } from './components/Main'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
     >
       <Header />
       <Container maxWidth="md">
-        <div className="App">Hi.</div>
+        <Main />
       </Container>
     </DAppProvider>
   )

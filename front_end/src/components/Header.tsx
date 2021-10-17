@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     gap: theme.spacing(1),
   },
 }))
+
 export const Header = () => {
   const classes = useStyles()
   const { account, activateBrowserWallet, deactivate } = useEthers()
