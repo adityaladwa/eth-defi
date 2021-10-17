@@ -12,6 +12,7 @@ export const useStakeTokens = (tokenAddress: string) => {
   const tokenFarmAddress = chainId
     ? networkMapping[String(chainId)]['TokenFarm'][0]
     : constants.AddressZero
+
   const tokenFarmInterface = new utils.Interface(abi)
   const tokenFarmContract = new Contract(tokenFarmAddress, tokenFarmInterface)
 
@@ -21,7 +22,7 @@ export const useStakeTokens = (tokenAddress: string) => {
 
   const {
     send: approveErc20Send,
-    state: approveErc20State,
+    state: approveAndStakeErc20State,
   } = useContractFunction(erc20Contract, 'approve', {
     transactionName: 'Approve ERC20 transfer',
   })
@@ -41,10 +42,20 @@ export const useStakeTokens = (tokenAddress: string) => {
   const [amountToStake, setAmountToStake] = useState('0')
 
   useEffect(() => {
-    if (approveErc20State.status === 'Success') {
+    if (approveAndStakeErc20State.status === 'Success') {
       stakeSend(amountToStake, tokenAddress)
     }
-  }, [approveErc20State])
+  }, [approveAndStakeErc20State, amountToStake, tokenAddress])
 
-  return { approveAndStake, approveErc20State }
+  const [state, setState] = useState(approveAndStakeErc20State)
+
+  useEffect(() => {
+    if (approveAndStakeErc20State.status === 'Success') {
+      setState(stakeState)
+    } else {
+      setState(approveAndStakeErc20State)
+    }
+  }, [approveAndStakeErc20State, stakeState])
+
+  return { approveAndStake, state }
 }

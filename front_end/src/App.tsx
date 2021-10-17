@@ -9,6 +9,10 @@ function App() {
     <DAppProvider
       config={{
         supportedChains: [ChainId.Rinkeby],
+        notifications: {
+          expirationPeriod: 1000,
+          checkInterval: 1000,
+        },
       }}
     >
       <Header />
