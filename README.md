@@ -117,7 +117,10 @@ You will need the following to be able to run this project locally
    brownie run scripts/deploy.py
    ```
 4. Run the frontend app
-`sh cd front_end yarn start`
+    ```sh 
+    cd front_end 
+    yarn start
+    ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
