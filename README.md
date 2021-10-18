@@ -101,7 +101,7 @@ You will need the following to be able to run this project locally
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/adityaladwa/defi.git
+   git clone https://github.com/adityaladwa/eth-defi.git
    ```
 2. Create `.env` file in root of project with the following variables
 
